@@ -15,6 +15,21 @@ class SignUp extends Component {
     password: '',
     confirmPassword: ''
   }
+
+  handleSubmit = async event => {
+    event.preventDefault()
+
+    const { displayName, email, password, confirmPassword} = this.state;
+
+    if(password != confirmPassword) {
+      alert("passwords don't match")
+      return
+    }
+
+    try {
+      const {user} = await auth.createUserWithEmailAndPassword()
+    } catch (error)
+  }
   
   }
   render() { 
