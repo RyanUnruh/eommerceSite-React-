@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
+
 import "./sign-up.styles.scss";
 
 import CustomeButton from "../custom-button/custom-button.component";
@@ -22,7 +23,7 @@ class SignUp extends Component {
 
       const { displayName, email, password, confirmPassword } = this.state;
 
-      if (password != confirmPassword) {
+      if (password !== confirmPassword) {
         alert("passwords don't match");
         return;
       }
@@ -56,13 +57,22 @@ class SignUp extends Component {
         <h2 className="title">I do not have an account</h2>
         <span>Sign up with email and password</span>
         <form onSubmit={this.handleSubmit} className="sighn-up-form">
+        <FormInput
+          type="text"
+          name="displayName"
+          value={displayName}
+          onChange={this.handleChange}
+          label="Desplay Name"
+          required
+        />
+      </form>
           <FormInput
             type="email"
             name="email"
             value={email}
             onChange={this.handleChange}
-            label="Desplay Name"
-            required8
+            label="Email"
+            required
           />
 
           <FormInput
@@ -81,15 +91,6 @@ class SignUp extends Component {
             label="Confirm Password"
             required
           />
-          <FormInput
-            type="text"
-            name="displayName"
-            value={displayName}
-            onChange={this.handleChange}
-            label="Desplay Name"
-            required
-          />
-        </form>
         <CustomeButton type="submit">SIGN UP</CustomeButton>
       </div>
     );
