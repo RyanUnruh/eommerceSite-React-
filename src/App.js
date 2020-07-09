@@ -56,6 +56,7 @@ class App extends React.Component {
   }
 }
 
+// I took off the curley brackets from user.
 const mapDispatchToProps = ( user ) => ({
   currentUser: user.currentUser,
 });
